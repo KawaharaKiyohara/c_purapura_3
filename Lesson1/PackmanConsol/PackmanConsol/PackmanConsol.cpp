@@ -76,9 +76,9 @@ public:
 		sFrameBuffer[m_posY][m_posX] = 'P';
 	}
 	/*!
-	 *@brief	移動処理。
+	 *@brief	更新処理。
 	 */
-	void Move()
+	void Update()
 	{
 		if (GetAsyncKeyState(VK_UP) & 0x8000) {
 			m_posY--;
@@ -139,11 +139,13 @@ class CFood {
 private:
 	int m_posX;		//!<x座標。
 	int m_posY;		//!<y座標
+	bool m_isDead;	//!<死亡フラグ。
 public:
 	/*!
 	*@brief	コンストラクタ。
 	*/
-	CFood()
+	CFood() :
+		m_isDead(false)
 	{
 		m_posX = 0;
 		m_posY = 0;
@@ -153,8 +155,10 @@ public:
 	*/
 	void Draw()
 	{
-		//フレームバッファにドロー。
-		sFrameBuffer[m_posY][m_posX] = 'F';
+		if (!m_isDead) {
+			//フレームバッファにドロー。
+			sFrameBuffer[m_posY][m_posX] = 'F';
+		}
 	}
 	/*!
 	*@brief	座標を設定。
@@ -217,7 +221,6 @@ public:
 int main()
 {
 	//プレイヤーの初期位置を決定。
-	
 	g_player.SetPosition(7, 7);
 	//壁
 	int numWall = 0;	//壁の数。
@@ -246,7 +249,11 @@ int main()
 		//フレームバッファをクリア。
 		memset(sFrameBuffer, 0, sizeof(sFrameBuffer));
 		//プレイヤーの移動処理。
-		g_player.Move();
+		g_player.Update();
+		//食べ物の更新処理。
+		for (int i = 0; i < numFood; i++) {
+			foods[i].Update();
+		}
 		//食べ物の描画処理。
 		for (int i = 0; i < numFood; i++) {
 			foods[i].Draw();
@@ -256,7 +263,7 @@ int main()
 			walls[i].Draw();
 		}
 		//プレーヤーの描画処理。
-		player.Draw();
+		g_player.Draw();
 		//フレームバッファの内容を画面に表示する。
 		for (int i = 0; i < MAP_HEIGHT; i++) {
 			for (int j = 0; j < MAP_WIDTH; j++) {
