@@ -6,28 +6,31 @@
 #include <windows.h>
 #include "CVector2.h"
 #include "PackmanConsol.h"
+#include "PathFinding.h"
 
 //マップの定義。1は壁。0は餌。
 int g_map[MAP_HEIGHT][MAP_WIDTH] = {
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-	{ 1, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1 },
+	{ 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 	{ 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1 },
 	{ 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1 },
 	{ 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1 },
-	{ 1, 0, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0, 1, 0, 1 },
+	{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
 	{ 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1 },
-	{ 1, 0, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
+	{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
 	{ 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1 },
 	{ 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 	{ 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1 },
 	{ 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
-	{ 1, 0, 0, 2, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1 },
-	{ 1, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1 },
+	{ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+	{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 };
 
 //フレームバッファ・・・のようなもの。
 static char sFrameBuffer[MAP_HEIGHT][MAP_WIDTH];
+
+CPathFinding g_pathFinding;
 
 void EndFrame()
 {
@@ -40,57 +43,24 @@ void EndFrame()
 	SetConsoleCursorPosition(hCons, pos);
 }
 
-
-class CEnemy {
-private:
-	CVector2 m_position;	//!<座標。
-	int		m_moveDir;		//!<移動方向
-public:
-	CEnemy()
-	{
-		m_moveDir = 1;
-	}
-	/*!
-	*@brief	プレイヤーの描画処理。
-	*/
-	void Draw()
-	{
-		//フレームバッファにドロー。
-		sFrameBuffer[m_position.GetY()][m_position.GetX()] = 'E';
-	}
-	/*!
-	*@brief	更新処理。
-	*/
-	void Update()
-	{
-		int posX = m_position.GetX();
-		posX += m_moveDir;
-		m_moveDir *= -1;
-		m_position.Set(posX, m_position.GetY());
-	}
-	void SetPosition(int x, int y)
-	{
-		m_position.Set(x, y);
-	}
-};
 /*!
- *@brief	プレイヤークラス。
- */
+*@brief	プレイヤークラス。
+*/
 class CPlayer {
 private:
 	CVector2 m_position;	//!<座標。
 public:
 	/*!
-	 *@brief	コンストラクタ。
-	 */
+	*@brief	コンストラクタ。
+	*/
 	CPlayer()
 	{
 		//初期化を行う。
-		m_position.Set( 0, 0 );
+		m_position.Set(0, 0);
 	}
 	/*!
-	 *@brief	デストラクタ。
-	 */
+	*@brief	デストラクタ。
+	*/
 	~CPlayer()
 	{
 
@@ -104,8 +74,8 @@ public:
 		sFrameBuffer[m_position.GetY()][m_position.GetX()] = 'P';
 	}
 	/*!
-	 *@brief	更新処理。
-	 */
+	*@brief	更新処理。
+	*/
 	void Update()
 	{
 		int x = m_position.GetX();
@@ -136,31 +106,76 @@ public:
 		}
 		m_position.Set(x, y);
 	}
+	CVector2 GetPosition()
+	{
+		return m_position;
+	}
 	/*!
-	 *@brief	X座標を取得。
-	 */
+	*@brief	X座標を取得。
+	*/
 	int GetPositionX()
 	{
 		return m_position.GetX();
 	}
 	/*!
-	 *@brief	Y座標を取得。
-	 */
+	*@brief	Y座標を取得。
+	*/
 	int GetPositionY()
 	{
 		return m_position.GetY();
 	}
 	/*!
-	 *@brief	座標を設定。
-	 *@param	x		x座標。
-	 *@param	y		y座標。
-	 */
+	*@brief	座標を設定。
+	*@param	x		x座標。
+	*@param	y		y座標。
+	*/
 	void SetPosition(int x, int y)
 	{
 		m_position.Set(x, y);
 	}
 };
 CPlayer g_player;
+
+class CEnemy {
+private:
+	CVector2 m_position;	//!<座標。
+	int		m_moveDir;		//!<移動方向
+	int		m_intervalTime;
+public:
+	CEnemy()
+	{
+		m_moveDir = 1;
+		m_intervalTime = 0;
+	}
+	/*!
+	*@brief	プレイヤーの描画処理。
+	*/
+	void Draw()
+	{
+		//フレームバッファにドロー。
+		sFrameBuffer[m_position.GetY()][m_position.GetX()] = 'E';
+	}
+	/*!
+	*@brief	更新処理。
+	*/
+	void Update()
+	{
+		m_intervalTime++;
+		if (m_intervalTime % 5) {
+			return;
+		}
+		std::vector<CVector2> root;
+		g_pathFinding.FindRoot(root, m_position, g_player.GetPosition());
+		if (!root.empty()) {
+			m_position = root[0];
+		}
+	}
+	void SetPosition(int x, int y)
+	{
+		m_position.Set(x, y);
+	}
+};
+
 
 /*!
 *@brief	食べ物クラス。
@@ -260,6 +275,7 @@ int main()
 	//敵。
 	int numEnemy = 0;
 	CEnemy enemy[MAP_HEIGHT*MAP_WIDTH];
+	g_pathFinding.BuildNodes();
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			if (g_map[i][j] == 1) {

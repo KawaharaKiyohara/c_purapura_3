@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
-
+#include <vector>
 
 
 // TODO: プログラムに必要な追加ヘッダーをここで参照してください
