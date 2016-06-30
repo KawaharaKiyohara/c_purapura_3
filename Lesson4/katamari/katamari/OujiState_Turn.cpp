@@ -1,0 +1,20 @@
+#include "stdafx.h"
+#include "OujiState_Turn.h"
+
+
+
+OujiState_Turn::OujiState_Turn()
+{
+}
+
+
+OujiState_Turn::~OujiState_Turn()
+{
+}
+
+/*!
+*@brief	çXêVÅB
+*/
+void OujiState_Turn::Update()
+{
+}

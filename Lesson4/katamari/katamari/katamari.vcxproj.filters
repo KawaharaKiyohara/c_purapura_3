@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="lib\system.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Ouji.cpp">
+      <Filter>Ouji</Filter>
+    </ClCompile>
+    <ClCompile Include="OujiAnimationController.cpp">
+      <Filter>Ouji</Filter>
+    </ClCompile>
+    <ClCompile Include="OujiStateBase.cpp">
+      <Filter>Ouji</Filter>
+    </ClCompile>
+    <ClCompile Include="OujiState_Stand.cpp">
+      <Filter>Ouji\State</Filter>
+    </ClCompile>
+    <ClCompile Include="OujiState_Turn.cpp">
+      <Filter>Ouji\State</Filter>
+    </ClCompile>
+    <ClCompile Include="OujiState_Run.cpp">
+      <Filter>Ouji\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="MonoBase.cpp">
+      <Filter>Mono</Filter>
+    </ClCompile>
+    <ClCompile Include="Mono_Static.cpp">
+      <Filter>Mono</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoManager.cpp">
+      <Filter>Mono</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="lib\system.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Ouji.h">
+      <Filter>Ouji</Filter>
+    </ClInclude>
+    <ClInclude Include="OujiAnimationController.h">
+      <Filter>Ouji</Filter>
+    </ClInclude>
+    <ClInclude Include="OujiStateBase.h">
+      <Filter>Ouji</Filter>
+    </ClInclude>
+    <ClInclude Include="IOujiStateListener.h">
+      <Filter>Ouji</Filter>
+    </ClInclude>
+    <ClInclude Include="OujiState_Stand.h">
+      <Filter>Ouji\State</Filter>
+    </ClInclude>
+    <ClInclude Include="OujiState_Turn.h">
+      <Filter>Ouji\State</Filter>
+    </ClInclude>
+    <ClInclude Include="OujiState_Run.h">
+      <Filter>Ouji\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="MonoBase.h">
+      <Filter>Mono</Filter>
+    </ClInclude>
+    <ClInclude Include="Mono_Static.h">
+      <Filter>Mono</Filter>
+    </ClInclude>
+    <ClInclude Include="MonoManager.h">
+      <Filter>Mono</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{7cd0f4ea-2d27-48a0-bce3-39ac6ddd212a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ouji">
+      <UniqueIdentifier>{acdbc1c3-0f38-4f85-8dc1-7f9d3f9f2fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ouji\State">
+      <UniqueIdentifier>{d45234d1-43b0-4651-9193-9e5276be9a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mono">
+      <UniqueIdentifier>{9d0b375c-68e2-4d36-8054-2b98d42cf0fe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+#include "stdafx.h"
+#include "OujiState_Stand.h"
+
+
+
+OujiState_Stand::OujiState_Stand()
+{
+}
+
+
+OujiState_Stand::~OujiState_Stand()
+{
+}
+
+/*!
+*@brief	çXêVÅB
+*/
+void OujiState_Stand::Update()
+{
+	
+}

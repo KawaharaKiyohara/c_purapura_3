@@ -1,0 +1,18 @@
+#pragma once
+
+#include "MonoBase.h"
+
+//ìÆÇ©Ç»Ç¢ÉÇÉm
+class Mono_Static : public MonoBase
+{
+public:
+	Mono_Static();
+	~Mono_Static();
+	//èâä˙âªÅB
+	void Init( const CVector3& pos, const CQuaternion& rot) ;
+	void UpdateSub()
+	{
+
+	}
+};
+
