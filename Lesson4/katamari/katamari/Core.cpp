@@ -16,7 +16,7 @@ Core::~Core()
 }
 
 void Core::Init()
-{
+{ 
 	//モデルデータのロード。
 	modelData.LoadModelData("Assets/modelData/core.x", NULL);
 	//モデルにモデルデータをセット。
