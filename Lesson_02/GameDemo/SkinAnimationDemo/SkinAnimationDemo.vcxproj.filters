@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Enemy">
+      <UniqueIdentifier>{1e3b9589-09f0-4826-9979-f4562d2ea7ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemy\HFSM">
+      <UniqueIdentifier>{3ab7919d-4886-4d5d-9841-557313d3c192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Map">
+      <UniqueIdentifier>{a8720f2c-e606-441c-b284-80db204b8bfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{21f05900-a4dc-4bec-abbc-a6640d4a9a78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HUD">
+      <UniqueIdentifier>{19ef75f3-9793-422a-af19-e7c1586a26ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player\FSM">
+      <UniqueIdentifier>{0fdf4d46-d3ca-406d-a857-524a7aa6e657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{23534f5d-bcfa-43b2-afcf-b1599ab79014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ScreenEffect">
+      <UniqueIdentifier>{a71ee11f-9054-4b30-b14c-d9a00c49df49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Light">
+      <UniqueIdentifier>{85d136dc-fba9-4c29-b63e-e2865638cf1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player\MagicSkill">
+      <UniqueIdentifier>{a1c9a305-d96e-459f-96cc-b981ca31e2f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Map\Item">
+      <UniqueIdentifier>{8bb8fb42-c892-4317-8ba3-1248865d9c10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnityChanInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\Enemy_00.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\EnemyManager.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateSearch.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateWalk.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateAttack.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateFind.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateRun.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateDamage.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageCollisionWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\MapChip.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Ground.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Map.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Player.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationEventController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateDeath.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\HFSM\EnemyStateIdle.cpp">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\Enemy.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\EnemySensor.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\PlayerHPBar.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\PlayerMPBar.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\FSM\PlayerStateDead.cpp">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\FSM\PlayerStateRun.cpp">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\FSM\PlayerStateStand.cpp">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\FSM\PlayerStateAttack.cpp">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\FSM\PlayerStateDamage.cpp">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\LockOn2D.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\GameScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\TitleScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\NowLoading.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\GameOver2D.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenEffect\Fade.cpp">
+      <Filter>Source Files\ScreenEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="Light\InGameLight.cpp">
+      <Filter>Source Files\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\MagicSkill2D.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\MagicSkill\IMagicSkill.cpp">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\MagicSkill\MagicSkillDash.cpp">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\MagicSkill\MagicSkillTimeCtr.cpp">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\MagicSkill\MagicSkillStealth.cpp">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Map\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemMaker.cpp">
+      <Filter>Source Files\Map\Item</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnityChanInstance.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCamera.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTest.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\Enemy_00.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\IEnemyState.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateWalk.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyManager.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateAttack.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateFind.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateIdle.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateSearch.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateRun.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\Enemy.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateDamage.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageCollisionWorld.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Map.h">
+      <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\MapChip.h">
+      <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Ground.h">
+      <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player.h">
+      <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationEventController.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationEventMacro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\HFSM\EnemyStateDeath.h">
+      <Filter>Source Files\Enemy\HFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyParameter.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemySensor.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\PlayerHPBar.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyAnimationEventTbl.h">
+      <Filter>Source Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\PlayerMPBar.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\PlayerStateDamage.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\PlayerStateDead.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\PlayerStateRun.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\PlayerStateStand.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\IPlayerState.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\FSM\PlayerStateAttack.h">
+      <Filter>Source Files\Player\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\LockOn2D.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GameScene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\TitleScene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\NowLoading.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\GameOver2D.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenEffect\Fade.h">
+      <Filter>Source Files\ScreenEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Light\InGameLight.h">
+      <Filter>Source Files\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\MagicSkill2D.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\MagicSkill\IMagicSkill.h">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\MagicSkill\MagicSkillDash.h">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\MagicSkill\MagicSkillTimeCtr.h">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\MagicSkill\MagicSkillStealth.h">
+      <Filter>Source Files\Player\MagicSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemMaker.h">
+      <Filter>Source Files\Map\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Source Files\Map\Item</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
