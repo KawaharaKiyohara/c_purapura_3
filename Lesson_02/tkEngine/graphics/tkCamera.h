@@ -108,7 +108,13 @@ namespace tkEngine{
 		{
 			return m_near;
 		}
-		
+		void SetPosition(CVector3 pos)
+		{
+			if (isinf(pos.x)) {
+				printf("見つけた!!");
+			}
+			m_position = pos;
+		}
 		/*!
 		* @brief	ワールド座標からスクリーン座標を計算する。
 		*@details
@@ -119,10 +125,11 @@ namespace tkEngine{
 		*/
 		void CalcScreenPositionFromWorldPosition(CVector2& screenPos, const CVector3& worldPos) const;
 	public:
-		CVector3	m_position;							//!<カメラ位置。
-		float			m_viewAngle;						//!<画角(ラジアン)。
+		float		m_viewAngle;						//!<画角(ラジアン)。		
+		CVector3	m_position;
 	private:
 		
+					//!<カメラ位置。
 		CVector3	m_up;								//!<カメラの上方向。
 		CVector3	m_target;							//!<カメラの中止点。
 		CMatrix		m_viewMatrix;						//!<ビュー行列。

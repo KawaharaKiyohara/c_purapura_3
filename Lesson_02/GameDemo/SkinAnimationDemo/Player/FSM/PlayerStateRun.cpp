@@ -21,10 +21,9 @@ void PlayerStateRun::Update()
 {
 	timer += GameTime().GetFrameDeltaTime();
 	if (timer > 10.0f) {
-
-		cam->m_position = CVector3::Zero;
-		cam->m_position.x = 1.0f / cam->m_position.x;
-
+		CVector3 pos = CVector3::Zero;
+		pos.x = 1.0f / pos.x;
+		cam->SetPosition(pos);
 	}
 	const float USE_MP_DASH = 50.0f;		//ダッシュ魔法を使った時のMP使用量。
 	const float MOVE_SPEED = 7.0f;
