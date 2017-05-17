@@ -42,7 +42,7 @@ namespace tkEngine{
 
 			sunDir = sunPosition;
 			sunPosition.Scale(1000000.0f);
-			atomosphereParam.Update(camera->m_position, sunPosition);
+			atomosphereParam.Update(camera->GetPosition(), sunPosition);
 			CVector3 lightPos = sunPosition;
 			lightPos.Normalize();
 			lightPos.Scale(30.0f);

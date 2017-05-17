@@ -80,7 +80,7 @@ namespace tkEngine{
 		*/
 		void SetPosition(const CVector3 position)
 		{
-			m_camera.m_position = position;
+			m_camera.SetPosition(position);
 		}
 		/*!
 		* @brief	‰“•½–Ê‚ğİ’èB

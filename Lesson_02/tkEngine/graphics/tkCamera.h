@@ -14,7 +14,16 @@ namespace tkEngine{
 		 * @brief	ビュー行列、プロジェクション行列、ビュープロジェクション行列を更新。
 		 */
 		virtual void Update();
-		
+		//カメラの視点取得する関数。
+		CVector3 GetPosition() const
+		{
+			return m_position;
+		}
+		//視点に値を設定する関数。
+		void SetPosition(CVector3 pos)
+		{
+			m_position = pos;
+		}
 		/*!
 		 * @brief	注視点を設定。
 		 *@param[in]	target		注視点。
@@ -108,13 +117,7 @@ namespace tkEngine{
 		{
 			return m_near;
 		}
-		void SetPosition(CVector3 pos)
-		{
-			if (isinf(pos.x)) {
-				printf("見つけた!!");
-			}
-			m_position = pos;
-		}
+		
 		/*!
 		* @brief	ワールド座標からスクリーン座標を計算する。
 		*@details
@@ -126,9 +129,9 @@ namespace tkEngine{
 		void CalcScreenPositionFromWorldPosition(CVector2& screenPos, const CVector3& worldPos) const;
 	public:
 		float		m_viewAngle;						//!<画角(ラジアン)。		
-		CVector3	m_position;
-	private:
 		
+	private:
+		CVector3	m_position;
 					//!<カメラ位置。
 		CVector3	m_up;								//!<カメラの上方向。
 		CVector3	m_target;							//!<カメラの中止点。
