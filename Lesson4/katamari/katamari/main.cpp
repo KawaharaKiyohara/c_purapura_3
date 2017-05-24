@@ -7,7 +7,7 @@
 
 Game* game = NULL;
 
-#define MAX_MONO  500
+#define MAX_MONO  30
 
 //コンストラクタ。
 Game::Game()
@@ -35,8 +35,8 @@ void Game::Start()
 	for (int i = 0; i < MAX_MONO; i++) {
 		Mono_Static* mono = new Mono_Static;
 		CVector3 pos;
-		float xSeed = (random.GetRandDouble() - 0.5f)* 2.0f;
-		float zSeed = (random.GetRandDouble() - 0.5f)* 2.0f;
+		float xSeed = (random.GetRandDouble() - 0.5f)* 0.5f;
+		float zSeed = (random.GetRandDouble() - 0.5f)* 0.5f;
 		pos.Set(xSeed * 30.0f, 0.5f, zSeed * 30.0f);
 		mono->Init( pos, CQuaternion::Identity );
 		monoManager.AddMono(mono);

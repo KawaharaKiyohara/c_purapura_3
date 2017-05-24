@@ -6,9 +6,9 @@ Player g_player;
 
 Player::Player()
 {
-	//初期化を行う。
-	m_posX = 0;
-	m_posY = 0;
+	//ここでm_posのコンストラクタが
+	//呼ばれているので初期化不要
+
 }
 
 
@@ -21,7 +21,7 @@ Player::~Player()
 void Player::Draw()
 {
 	//フレームバッファにドロー。
-	sFrameBuffer[m_posY][m_posX] = 'P';
+	sFrameBuffer[m_pos.GetY()][m_pos.GetX()] = 'P';
 }
 /*!
 *@brief	更新処理。
@@ -29,15 +29,19 @@ void Player::Draw()
 void Player::Update()
 {
 	if (GetAsyncKeyState(VK_UP) & 0x8000) {
-		m_posY--;
-		if (m_posY < 0) {
-			m_posY = 0;
+		int posY = m_pos.GetY();
+		posY--;
+		m_pos.SetY(posY);
+		if (m_pos.GetY() < 0) {
+			m_pos.SetY(0);
 		}
 	}
 	else if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
-		m_posX--;
-		if (m_posX < 0) {
-			m_posX = 0;
+		int posX = m_pos.GetX();
+		posX--;
+		m_pos.SetX(posX);
+		if (m_pos.GetX() < 0) {
+			m_pos.SetX(0);
 		}
 	}
 	else if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
@@ -49,7 +53,7 @@ void Player::Update()
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
 		m_posX++;
 		if (m_posX > MAP_WIDTH - 1) {
-			m_posX = MAP_WIDTH - 1;
+			m_pos.SetX(MAP_WIDTH - 1);
 		}
 	}
 }
@@ -58,14 +62,14 @@ void Player::Update()
 */
 int Player::GetPositionX()
 {
-	return m_posX;
+	return m_pos.GetX();
 }
 /*!
 *@brief	Y座標を取得。
 */
 int Player::GetPositionY()
 {
-	return m_posY;
+	return m_pos.GetY();
 }
 /*!
 *@brief	座標を設定。
@@ -74,6 +78,6 @@ int Player::GetPositionY()
 */
 void Player::SetPosition(int x, int y)
 {
-	m_posX = x;
-	m_posY = y;
+	m_pos.SetX(x);
+	m_pos.SetY(y);
 }

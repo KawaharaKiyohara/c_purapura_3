@@ -1,9 +1,9 @@
 #pragma once
+#include "Vector2.h"
 class Player {
 	;
 private:
-	int m_posX;			//!<x座標。
-	int m_posY;			//!<y座標。
+	Vector2 m_pos;
 public:
 	/*!
 	*@brief	コンストラクタ。

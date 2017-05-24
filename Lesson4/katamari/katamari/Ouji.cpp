@@ -146,8 +146,11 @@ void Ouji::Update()
 	if (isStand) {
 		ChangeState(eState_Stand);
 	}
-	core->AddRotationY(qAddRot);
-	core->AddRotationX(qAddTate);
+	//Coreのメンバ変数rotationYとrotationXにアクセスしているため
+	//アクセス指定子をprivateに変更するとコンパイルエラーが発生する。
+	//これを解決する方法を考えなさい。
+	core->rotationY.Multiply(qAddRot);
+	core->rotationX.Multiply(qAddTate);
 	
 	
 	const CVector3& scale = core->GetScale();
@@ -159,7 +162,12 @@ void Ouji::Update()
 	CVector3 addPos;
 	addPos = direction;
 	addPos.Scale(moveSpeed);
-	core->AddPosition(addPos);
+	//Coreクラスのメンバ変数のpositionにアクセスしているので、
+	//positionのアクセス指定子をprivateにするとコンパイルエラーが発生する。
+	//これを解決する方法を考えなさい。
+	core->position.x += addPos.x;
+	core->position.y += addPos.y;
+	core->position.z += addPos.z;
 
 	animation.Update(1.0f / 60.0f);
 
