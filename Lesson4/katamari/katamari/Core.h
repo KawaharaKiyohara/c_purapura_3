@@ -30,14 +30,7 @@ public:
 	{
 		this->ouji = ouji;
 	}
-	/*!
-	*@brief	座標を取得。
-	*@param[in]	ouji	王子
-	*/
-	const CVector3& GetPosition()
-	{
-		return position;
-	}
+	
 	/*!
 	*@brief	Y軸周りの回転を取得
 	*@param[in]	ouji	王子
@@ -54,30 +47,8 @@ public:
 	{
 		return rotation;
 	}
-	/*!
-	*@brief	座標を加算。
-	*@param[in]	addPos	加算する座標。
-	*/
-	void AddPosition(const CVector3& addPos)
-	{
-		position.Add(addPos);
-	}
-	/*!
-	*@brief	回転を追加。
-	*@param[in]	addRot	追加する回転。
-	*/
-	void AddRotationY(const CQuaternion& addRot)
-	{
-		rotationY.Multiply(addRot);
-	}
-	/*!
-	*@brief	回転を追加。
-	*@param[in]	addRot	追加する回転。
-	*/
-	void AddRotationX(const CQuaternion& addRot)
-	{
-		rotationX.Multiply(addRot);
-	}
+	
+	
 	/*!
 	*@brief	X軸周りの回転を除外したワールド行列を取得。
 	*/
@@ -99,10 +70,11 @@ public:
 	{
 		return scale;
 	}
+	CVector3 position;				//!<コアの座標。
+	CQuaternion rotationY;			//!<Y軸周りのコアの回転。
+	CQuaternion rotationX;			//!<X軸周りのコアの回転。
 private:
-	CVector3 position;				//!<コアの座標
-	CQuaternion rotationY;			//!<Y軸周りのコアの回転
-	CQuaternion rotationX;			//!<X軸周りのコアの回転
+	
 	CQuaternion	rotation;			//!<回転
 	Ouji* ouji;
 	CSkinModelData	modelData;		//モデルデータ。

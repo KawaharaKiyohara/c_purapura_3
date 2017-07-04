@@ -22,7 +22,7 @@ void Ground::Init()
 	light.SetAmbinetLight(CVector3(0.7f, 0.7f, 0.7f));
 
 	model.SetLight(&light);
-	model.UpdateWorldMatrix(CVector3::Zero, CQuaternion::Identity, CVector3(10.0f, 1.0f, 10.0f));
+	model.UpdateWorldMatrix(CVector3::Zero, CQuaternion::Identity, CVector3(3.0f, 1.0f, 3.0f));
 }
 //ï`âÊÅB
 void Ground::Render(CRenderContext& renderContext)
